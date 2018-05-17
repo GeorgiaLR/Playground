@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TP - Random Game</title>
+    <style>
+        body {
+            font-family: Verdana, Arial, sans-serif;
+        }
+
+        div,
+        h2 {
+            margin: 20px;
+        }
+
+        #enonce {
+            border: 1px #000000 solid;
+            border-radius: 5px;
+            background-color: #f5f5dc;
+            padding: 15px;
+        }
+
+        header {
+            background-color: #000000;
+            padding: 5px;
+            width: 100%;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        
+        .gg {
+            color:#145f14;
+            font-weight: bold;
+        }
+
+        
+        .lose {
+            color:#be210c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="../img/logo-gh.png" alt="Logo GitHub" />
+        <span>GitHub : GeorgiaLR</span>
+    </header>
+
+    <h2>Énoncé de l'exercice :</h2>
+    <div id="enonce">
+        <p>Réaliser un mini jeu où l'utilisateur devra deviner un nombre entre 1 et 100.</p>
+        <p>L'utilisateur a 8 essais pour trouver le résultat.</p>
+    </div>
+
+    <h2>Résultat de l'exercice :</h2>
+
+
+    <div id="saisie">
+        <p>Trouvez le nombre entre 1 et 100 :</p>
+        <input type="number" name="nombre" id="nombre">
+        <button type="button" id="bouton">OK</button>
+    </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+
+<script>
+
+    let nbAtrouver = Math.round(Math.random() * 100);
+    let turn = 0;
+
+    console.log(nbAtrouver);
+    console.log(turn);
+
+    $('#saisie').append("<p>Premier essai !</p>");
+
+    $('#bouton').on('click', function (event) {
+
+        let proposition = $('#nombre').val();
+        let last = 7 - turn;
+
+        event.preventDefault();
+
+        if (last > 0) {
+
+            if (proposition == nbAtrouver) {
+                $('#saisie').append("<p class='gg'>Félicitations, vous avez gagné en " + turn + " essais.</p>");
+            }
+
+            else if (proposition < nbAtrouver) {
+                turn = turn + 1;
+                $('#saisie').append("<p>" + proposition + " est trop petit. Il vous reste " + last + " essais.</p>")
+            }
+
+            else {
+                turn = turn + 1;
+                $('#saisie').append("<p>" + proposition + " est trop grand. Il vous reste " + last + " essais.</p>")
+            }
+        }
+
+        else {
+            $('#saisie').append("<p class='lose'>Désolé, vous avez perdu.</p>")
+        }
+
+    });
+
+</script>
+
+</html>

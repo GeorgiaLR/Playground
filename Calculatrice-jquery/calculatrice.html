@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TP - Calculatrice</title>
+    <style>
+        body {
+            font-family: Verdana, Arial, sans-serif;
+        }
+
+        div,
+        h2 {
+            margin: 20px;
+        }
+
+        #enonce {
+            border: 1px #000000 solid;
+            border-radius: 5px;
+            background-color: #f5f5dc;
+            padding: 15px;
+        }
+
+        header {
+            background-color: #000000;
+            padding: 5px;
+            width: 100%;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        #calculatrice {
+            background-color: #7ebfeb;
+            border: 1px #15078d solid;
+            border-radius: 5px;
+            width: 250px;
+        }
+
+        .row {
+            display: block;
+        }
+
+        #saisie {
+            background-color: #9be2e2;
+            border: 2px #2516a7 solid;
+            border-radius: 5px;
+            color: #2516a7;
+            height: 30px;
+            text-align: right;
+        }
+
+        button {
+            background-color: #7ebfeb;
+            border: 2px #2516a7 solid;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <img src="../img/logo-gh.png" alt="Logo GitHub" />
+        <span>GitHub : GeorgiaLR</span>
+    </header>
+
+    <h2>Énoncé de l'exercice :</h2>
+    <div id="enonce">
+        <p>réaliser une mini-calculatrice avec les opérateurs de base (+, -, *, /)</p>
+    </div>
+
+    <h2>Résultat de l'exercice :</h2>
+
+    <div id="calculatrice">
+        <div id="saisie">
+
+        </div>
+
+        <div class="row">
+            <button class="number" data-number="7">7</button>
+            <button class="number" data-number="8">8</button>
+            <button class="number" data-number="9">9</button>
+            <button class="operator" data-operator="*">*</button>
+            <button class="operator" data-operator="/">/</button>
+        </div>
+        <div class="row">
+            <button class="number" data-number="4">4</button>
+            <button class="number" data-number="5">5</button>
+            <button class="number" data-number="6">6</button>
+            <button class="operator" data-operator="+">+</button>
+            <button class="operator" data-operator="-">-</button>
+        </div>
+        <div class="row">
+            <button class="number" data-number="1">1</button>
+            <button class="number" data-number="2">2</button>
+            <button class="number" data-number="3">3</button>
+            <button class="operator" data-number="0">0</button>
+            <button id="total" data-total="=">=</button>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    <script>
+
+        function calculer(nbre1, operateur, nbre2) {
+            switch (operateur) {
+                case "+":
+                    resultat = nbre1 + nbre2;
+                    return resultat;
+                    break;
+                case "-":
+                    resultat = nbre1 - nbre2;
+                    return resultat;
+                    break;
+                case "*":
+                    resultat = nbre1 * nbre2;
+                    return resultat;
+                    break;
+                case "/":
+                    resultat = nbre1 / nbre2;
+                    return resultat;
+                    break;
+            }
+        }
+
+        let nbre1;
+        let nbre2;
+        let operateur;
+
+        $('.number').on('click', function (event) {
+
+            let cible = $(event.target).data('number');
+
+            if (nbre1 == null) {
+                nbre1 = parseInt(cible);
+                $('#saisie').html(nbre1 + " ");
+
+            }
+            else {
+                nbre2 = parseInt(cible);
+                $('#saisie').html(nbre2 + " ");
+
+            }
+
+        });
+
+        $('.operator').on('click', function (event) {
+            operateur = $(event.target).data('operator');
+            $('#saisie').html(operateur + " ");
+
+        });
+
+        $('#total').on('click', function (event) {
+            calculer(nbre1, operateur, nbre2);
+            $('#saisie').html(resultat);
+            nbre1 = null;
+        });
+
+    </script>
+
+</body>
+
+</html>

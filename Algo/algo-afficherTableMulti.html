@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Initiation à Javascript - Rappels sur les algorithmes</title>
+    <style>
+        body {
+            font-family: Verdana, Arial, sans-serif;
+        }
+
+        div,
+        h2 {
+            margin: 20px;
+        }
+
+        #enonce {
+            border: 1px #000000 solid;
+            border-radius: 5px;
+            background-color: #f5f5dc;
+            padding: 15px;
+        }
+
+        header {
+            background-color: #000000;
+            padding: 5px;
+            width: 100%;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        table {
+            border: 1px black solid;
+
+        }
+
+        th {
+            border: 2px #4e80c2 solid;
+            text-align: center;
+            background-color: #609ccc;
+        }
+
+
+        td {
+            background-color: beige;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="../img/logo-gh.png" alt="Logo GitHub" />
+        <span>GitHub : GeorgiaLR</span>
+    </header>
+
+    <h2>Énoncé de l'exercice :</h2>
+    <div id="enonce">
+        <p>Écrire une fonction permettant d'afficher toutes les tables de multiplication de 0 à 10.</p>
+        <p>Les afficher ensuite dans un tableau en manipulant le DOM.</p>
+    </div>
+
+    <h2>Résultat de l'exercice :</h2>
+
+
+    <div id=table>
+
+    </div>
+
+
+</body>
+
+</html>
+
+<script>
+
+    let tableau = document.getElementById("table");
+    tableau.innerHTML += '<table id="tableau">';
+
+    function tableMulti() {
+        let resultat = 0;
+        let table = document.getElementById("tableau");
+        for (var i = 0; i <= 10; i++) {
+            table.innerHTML += "<th><b>Table de " + i + "</b></th>";
+            for (var k = 0; k <= 10; k++) {
+                resultat = i * k;
+                table.innerHTML += "<tr><td>" + i + " x " + k + " = " + resultat + "</td></tr>";
+            }
+        }
+    }
+
+    tableMulti();
+
+
+</script>

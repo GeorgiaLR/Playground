@@ -1,0 +1,122 @@
+<!doctype html>
+
+<html>
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Initiation à jQuery - Rappels sur les algorithmes</title>
+
+    <style>
+            body {
+                font-family: Verdana, Arial, sans-serif;
+            }
+    
+            div,
+            h2 {
+                margin: 20px;
+            }
+    
+            #enonce {
+                border: 1px #000000 solid;
+                border-radius: 5px;
+                background-color: #f5f5dc;
+                padding: 15px;
+            }
+    
+            header {
+                background-color: #000000;
+                padding: 5px;
+                width: 100%;
+                color: #ffffff;
+                font-weight: bold;
+            }
+
+            #generator {
+                border: 1px #c96615 solid;
+                border-radius: 5px;
+                background-color: #f7df9d;
+                padding: 15px;
+                width: 500px;
+                text-align: center;
+                color:#4444c4;
+            }
+    
+        </style>
+</head>
+
+<body>
+
+    
+        <header>
+                <img src="../img/logo-gh.png" alt="Logo GitHub" />
+                <span>GitHub : GeorgiaLR</span>
+            </header>
+        
+            <h2>Énoncé de l'exercice :</h2>
+            <div id="enonce">
+                <p>Ecrire un algorithme en Switch avec 5 cas.</p>
+            </div>
+        
+            <h2>Résultat de l'exercice :</h2>
+
+            <div id="generator"><h2>Bienvenue sur le générateur de bonne humeur !</h2>
+            
+                <div id="saisie">
+                <p>Entrez un nombre entre 1 et 5.</p>
+                <p>Ce chiffre représente votre humeur 1 étant le plus bas et 5 le plus élevé.</p>
+                <input type="texte" name="mood" id="mood">
+                <button type="button" id="bouton">Envoi</button>
+            </div>
+            
+            
+            <div id="resultat"></div>
+            </div>
+
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                crossorigin="anonymous"></script>
+            <script>
+
+
+        
+        $('#bouton').on('click', function (event) {
+
+            $('#resultat').empty();
+            let mood = $('#mood').val();
+           
+            switch(mood) {
+
+            case "1":
+                $('#resultat').html("<p>Dur, dur...</p> <p>Essayons de vous faire sourire un peu : <a href='https://www.youtube.com/watch?v=etoDNEDD5mg' target='_blank'> CLIC </a></p>");
+                break;
+
+            case "2":
+                $('#resultat').html("<p>Ouh, ça n'a pas l'air d'aller fort..</p> <p>Ne vous inquiétez pas !</p> <p>Nous avons trouvé quelqu'un pour vous donner quelques conseils : <a href='https://www.youtube.com/watch?v=IYOarUVEQf0' target='_blank'> CLIC </a></p>");
+                break;
+
+            case "3":
+                $('#resultat').html("<p>Pas mal !</p> <p>Et si on essayait de vous emmener un peu plus haut ? <a href='https://www.youtube.com/watch?v=elwTgpHlty0' target='_blank'> CLIC </a></p>");
+                break;
+
+            case "4":
+                $('#resultat').html("<p>Presque au top !</p> <p>Ne redescendez surtout pas, un petit coup de pouce ? <a href='https://www.youtube.com/watch?v=V3EYjVPRClU' target='_blank'> CLIC </a></p>");
+                break;
+
+            case "5":
+                $('#resultat').html("<p>Mais vous avez l'air en pleine forme !</p> <p>Ne vous arrêtez pas en si bon chemin, on vous encourage tous ! <a href='https://youtu.be/EmnSm_d2ll4' target='_blank'> CLIC </a></p>");
+                break;
+
+            default:
+                $('#resultat').html("Entre 1 et 5, et tout se passera bien, ayez confiance.");
+            }
+
+            });
+
+
+    </script>
+
+
+</body>
+
+</html>

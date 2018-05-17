@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Initiation à jQuery - Rappels sur les algorithmes</title>
+    <style>
+        body {
+            font-family: Verdana, Arial, sans-serif;
+        }
+
+        div,
+        h2 {
+            margin: 20px;
+        }
+
+        #enonce {
+            border: 1px #000000 solid;
+            border-radius: 5px;
+            background-color: #f5f5dc;
+            padding: 15px;
+        }
+
+        header {
+            background-color: #000000;
+            padding: 5px;
+            width: 100%;
+            color: #ffffff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <img src="../img/logo-gh.png" alt="Logo GitHub" />
+        <span>GitHub : GeorgiaLR</span>
+    </header>
+
+    <h2>Énoncé de l'exercice :</h2>
+    <div id="enonce">
+        <p>Une salle de cinéma facture chaque séance 9,50 €. Le directeur de la salle a mis en place les réductions suivantes
+            : </p>
+        <p>Les spectateurs fidèles, qui vont au moins 3 fois par mois au cinéma, disposent d’une réduction de 2 € par séance.</p>
+        <p>Les cinéphiles, qui vont 6 fois ou plus par mois au cinéma, paieront 5 € la séance.</p>
+        <p>1) Construire un algorithme de calcul du montant total payé par mois en fonction du nombre de séances mensuelles.
+        </p>
+        <p>Définir une variable en « dur » avec le nombre de séances mensuelles pour faire les tests. Afficher le résultat.</p>
+        <p>2) Ajouter une zone de saisie et un bouton « OK » pour saisir le nombre de séances mensuelles et ne plus utiliser
+            la variable en « dur » </p>
+    </div>
+
+    <h2>Résultat de l'exercice :</h2>
+
+    <div id="saisie">
+        <p>Entrez le nombre de séances par mois désirées :</p>
+        <input type="texte" name="seances" id="seances">
+        <button type="button" id="bouton">Envoi</button>
+    </div>
+
+    <div id="resultat"></div>
+
+</body>
+
+</html>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+<script>
+
+    let tarifBase = 9.50;
+    let tarifFinal = 0;
+
+    $('#bouton').on('click', function (event) {
+
+        $('#resultat').empty();
+
+        let seance = $('#seances').val();
+
+        if (seance >= 3 && seance < 6) {
+            tarifFinal = seance * (tarifBase - 2);
+        } else if (seance >= 6) {
+            tarifFinal = seance * 5;
+        } else {
+            tarifFinal = seance * tarifBase;
+        }
+
+        $('#resultat').html("Le tarif mensuel sera de : " + tarifFinal + " euros.");
+    });
+
+</script>

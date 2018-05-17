@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Initiation à jQuery - Rappels sur les algorithmes</title>
+
+    <style>
+        body {
+            font-family: Verdana, Arial, sans-serif;
+        }
+
+        div,
+        h2 {
+            margin: 20px;
+        }
+
+        #enonce {
+            border: 1px #000000 solid;
+            border-radius: 5px;
+            background-color: #f5f5dc;
+            padding: 15px;
+        }
+
+        header {
+            background-color: #000000;
+            padding: 5px;
+            width: 100%;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .gg {
+            color:#145f14;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <img src="../img/logo-gh.png" alt="Logo GitHub" />
+        <span>GitHub : GeorgiaLR</span>
+    </header>
+
+    <h2>Énoncé de l'exercice :</h2>
+    <div id="enonce">
+        <p>Un tableau contient 5 chiffres compris entre 1 et 15.</p>
+        <p>L'utilisateur doit les retrouver.</p>
+    </div>
+
+    <h2>Résultat de l'exercice :</h2>
+
+    <div id="saisie">
+        <p>Entrez un nombre entre 1 et 15 :</p>
+        <input type="texte" name="nbre" id="nbre">
+        <button type="button" id="bouton">Envoi</button>
+    </div>
+
+    <div id="resultat"></div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script>
+
+        let tableau = [3, 7, 10, 13, 14];
+        
+        $('#bouton').on('click', function (event) {
+
+            let nbre = $('#nbre').val();
+            let pst = false;
+
+            for (let i = 0; i < tableau.length; i++) {
+
+                if (tableau[i] == nbre) {
+                    pst = true;
+                }
+
+            }
+
+            if (pst) {
+                $('#resultat').append("<p class='gg'>Bravo, le nombre " + nbre + " est présent dans le tableau.</p>");
+            }
+            else {
+                $('#resultat').append("<p>Dommage, le nombre " + nbre + " n'est pas présent dans le tableau.</p>");
+            }
+
+        });
+
+    </script>
+</body>
+
+</html>

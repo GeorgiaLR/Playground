@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Initiation à Javascript - Rappels sur les algorithmes</title>
+    <style>
+        body {
+            font-family: Verdana, Arial, sans-serif;
+        }
+
+        div,
+        h2 {
+            margin: 20px;
+        }
+
+        #enonce {
+            border: 1px #000000 solid;
+            border-radius: 5px;
+            background-color: #f5f5dc;
+            padding: 15px;
+        }
+
+        header {
+            background-color: #000000;
+            padding: 5px;
+            width: 100%;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="../img/logo-gh.png" alt="Logo GitHub" />
+        <span>GitHub : GeorgiaLR</span>
+    </header>
+
+    <h2>Énoncé de l'exercice :</h2>
+    <div id="enonce">
+        <p>A l'aide d'une boucle et en manipulant le DOM, our chaque nombre compris entre 1 et 100 :</p>
+        <p>Afficher Fizz s'il est divisible par 3.</p>
+        <p>Afficher Buzz s'il est divisible par 5.</p>
+        <p>Afficher FizzBuzz s'il est divisible par 15.</p>
+        <p>Sinon afficher le nombre.</p>
+    </div>
+
+    <h2>Résultat de l'exercice :</h2>
+
+    <script> 
+               
+        for (let i = 1; i <= 100; i++) {
+            if (i % 15 == 0) {
+                document.write("FizzBuzz<br/>");
+            }
+            else if (i % 5 == 0) {
+                document.write("Fizz<br/>");
+            }
+            else if (i % 3 == 0) {
+
+                document.write("Buzz<br/>");
+            }
+            else {
+                document.write(i + "<br/>");
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
